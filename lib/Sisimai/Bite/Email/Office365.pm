@@ -193,7 +193,7 @@ sub scan {
 
                     } elsif( $e =~ /\AArrival-Date:[ ]*(.+)\z/ ) {
                         # Arrival-Date: Wed, 29 Apr 2009 16:03:18 +0900
-                        next if length $connheader->{'date'};
+                        next if defined $connheader->{'date'} && length $connheader->{'date'};
                         $connheader->{'date'} = $1;
 
                     } else {
